@@ -22,7 +22,6 @@ var camera_input : Vector2
 var rotation_velocity : Vector2
 
 @onready var head = $Head
-@onready var ground_check = $GroundCheck
 
 @export var start = false
 @export var current_camera = false
@@ -48,7 +47,7 @@ func play(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 		acceleration = air_acceleration
-	elif is_on_floor() and ground_check.is_colliding():
+	elif is_on_floor():
 		acceleration = normal_acceleration
 	else:
 		acceleration = normal_acceleration
